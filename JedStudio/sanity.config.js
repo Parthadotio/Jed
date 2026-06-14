@@ -4,8 +4,8 @@ import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemaTypes'
 
 export default defineConfig({
-  name: 'default',
-  title: 'Test',
+  name: 'Jed-Consultancy',
+  title: 'Jed',
 
   projectId: '8925ks15',
   dataset: 'production',
