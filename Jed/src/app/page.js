@@ -8,7 +8,6 @@ export const revalidate = 60;
 
 export default async function Page() {
   const courses = await client.fetch(coursesQuery)
-  console.log(courses);
   
   return (
 
