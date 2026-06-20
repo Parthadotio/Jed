@@ -14,7 +14,15 @@ export const coursesQuery = groq`*[_type == "courses"] | order(_createdAt desc) 
 }`;
 
 export const courseBySlugQuery = groq`*[_type == "courses" && slug.current == $slug][0] {
-  _id, title, slug, description, category, level, duration
+  _id,
+  title,
+  slug,
+  description,
+  category,
+  level,
+  duration,
+  price,
+  "image": image.asset->url  
 }`;
 
 export async function getCourses() {

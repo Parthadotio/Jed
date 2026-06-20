@@ -12,8 +12,13 @@ import {
   Target,
   FileCheck,
 } from "lucide-react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const Home = ({ courses = [] }) => {
+  
+  const router = useRouter();
+
   const [activeFilter, setActiveFilter] = useState("all");
   const [filteredCourses, setFilteredCourses] = useState(
     Array.isArray(courses) ? courses : [],
@@ -284,9 +289,10 @@ const Home = ({ courses = [] }) => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {Array.isArray(filteredCourses) &&
               filteredCourses.map((course) => (
-                <div
+                <Link
+                  href={`/courses/${course.slug.current}`}
                   key={course._id}
-                  className="group bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-xl hover:border-red-600 transition duration-300 cursor-pointer stagger-item hover:scale-105 transform"
+                  className="group bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-xl hover:border-red-600 transition duration-300 cursor-pointer stagger-item hover:scale-105 transform block"
                 >
                   <div className="relative h-48 bg-black overflow-hidden">
                     {course.image ? (
@@ -319,7 +325,7 @@ const Home = ({ courses = [] }) => {
                       View Course
                     </button>
                   </div>
-                </div>
+                </Link>
               ))}
           </div>
         </div>
